@@ -1,0 +1,33 @@
+{
+    "name": "drpreag/PHP-data-structures",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Predrag Vlajkovic",
+            "email": "predrag.vlajkovic@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.4"
+    },    
+    "autoload" : {
+        "classmap": [
+            "src/"
+        ],        
+        "psr-4": {
+            "PHPDataStructures\\": "src/"
+        }
+    },    
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },    
+    "config": {
+        "optimize-autoloader": true
+    }
+}
+
