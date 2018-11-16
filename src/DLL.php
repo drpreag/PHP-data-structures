@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * PHP data structure: Double Linked List = DLL
  *
@@ -20,7 +22,6 @@
  */
 
 namespace PHPDataStructures;
-//use PHPDataStructures\DLL_Node;
 
 class DLL
 {
@@ -28,19 +29,23 @@ class DLL
     protected $head;
     protected $tail;
 
-    public function __construct () {
+    public function __construct()
+    {
         $this->count = 0;
         $this->head = null;
         $this->tail = null;
     }
 
-    public function add (int $key, $value) : DLL_Node {
-        if ($this->head == null and $this->head != null)
+    public function add(int $key, $value) : DLL_node
+    {
+        if ($this->head == null and $this->tail != null) {
             throw new \Exception("Error in DLL, head is null, but tail is not null.");
-        if ($this->head != null and $this->head == null)
+        }
+        if ($this->head != null and $this->tail == null) {
             throw new \Exception("Error in DLL, head is not null, but tail is null.");
+        }
 
-        $newNode = new DLL_Node ($key, $value);
+        $newNode = new DLL_node($key, $value);
         $this->count++;
 
         if ($this->head == null) {              // first ever node in DLL
@@ -73,7 +78,8 @@ class DLL
         }
     }
 
-    public function delete (int $key) : ?DLL_Node {
+    public function delete(int $key) : ?DLL_node
+    {
         $oldNode = $this->contains($key);
         if ($oldNode) {
             $this->count--;
@@ -84,33 +90,39 @@ class DLL
             if ($this->head == $oldNode) {                      // first node in DLL
                 $this->head = $oldNode->getNext();
                 $oldNode->getNext()->setPrev(null);
-            } else
+            } else {
                 $oldNode->getPrev()->setNext($oldNode->getNext());
+            }
             if ($this->tail == $oldNode) {                      // last node in DLL
                 $this->tail = $oldNode->getPrev();
                 $oldNode->getPrev()->setNext(null);
-            } else
+            } else {
                 $oldNode->getNext()->setPrev($oldNode->getPrev());
+            }
             return $oldNode;
         }
         return null;
     }
 
-    public function contains ($key) : ?DLL_Node {
+    public function contains($key) : ?DLL_node
+    {
         $node = $this->head;
         while ($node != null) {
-            if ($node->getKey() == $key)
+            if ($node->getKey() == $key) {
                 return $node;
+            }
             $node = $node->getNext();
         }
         return null;
     }
 
-    public function count() : int {
+    public function count() : int
+    {
         return $this->count;
     }
 
-    public function getMin () : int {
+    public function getMin() : int
+    {
         $node = $this->head;
         $min = $this->head->getKey();
         while ($node != null) {
@@ -122,7 +134,8 @@ class DLL
         return $min;
     }
 
-    public function getMax () : int {
+    public function getMax() : int
+    {
         $node = $this->head;
         $max = $this->head->getKey();
         while ($node != null) {
@@ -135,10 +148,9 @@ class DLL
     }
 
     // Sequent print, just for testing purposes
-    public function printList (DLL_Node $startNode=null) {
-
+    public function printList(DLL_node $startNode = null)
+    {
         $node = !is_null($startNode)?$startNode:$this->head;
-
         echo "\n";
         while ($node != null) {
             echo $node->toString();

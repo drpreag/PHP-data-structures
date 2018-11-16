@@ -1,11 +1,13 @@
 <?php
+declare(strict_types=1);
 namespace PHPDataStructures;
+
 /**
- * Class DLL_Node
+ * Class DLL_node
  *
  * Node class for DLL (Double Linked List)
  *
- * DLL_Node can store: <int> $key, <any type> $value,
+ * DLL_node can store: <int> $key, <any type> $value,
  *
  * For storing key/value pars, key is integer, and value can be ANY object
  *
@@ -17,21 +19,21 @@ namespace PHPDataStructures;
  * getValue ()
  * setValue ($value)
  * getNext () : DDL_Node
- * setNext (DLL_Node $next)
+ * setNext (DLL_node $next)
  * getPrev () : DDL_Node
- * setPrev (DLL_Node $prev)
+ * setPrev (DLL_node $prev)
  * toString () : string
- *
  */
 
-class DLL_Node
+class DLL_node
 {
     protected $key;
     protected $value;
     protected $next;
     protected $prev;
 
-    public function __construct (int $key, $value) {
+    public function __construct(int $key, $value)
+    {
         $this->key = $key;
         $this->value = $value;
         $this->next = $this->prev = null;
@@ -48,10 +50,10 @@ class DLL_Node
     /**
      * @param mixed $key
      */
-    public function setKey(int $key)
-    {
-        $this->key = $key;
-    }
+//    public function setKey(int $key)
+//    {
+//        $this->key = $key;
+//    }
 
     /**
      * @return mixed
@@ -64,10 +66,10 @@ class DLL_Node
     /**
      * @param mixed $value
      */
-    public function setValue($value)
-    {
-        $this->value = $value;
-    }
+//    public function setValue($value)
+//    {
+//        $this->value = $value;
+//    }
 
     /**
      * @return mixed
@@ -101,7 +103,8 @@ class DLL_Node
         $this->prev = $prev;
     }
 
-    public function toString () : string {
+    public function toString() : string
+    {
         return "Key: $this->key; Value: $this->value; " .
             "Previous: " . ($this->prev?$this->prev->key:"") . "; " .
             "Next: " . ($this->next?$this->next->key:""). "\n";
