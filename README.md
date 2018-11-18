@@ -24,3 +24,5 @@ Classes:
     > AVL (represents a AVL tree)
 
 Look at tests/AVL_Test.php for a primer how to use.
+
+![Build Status](https://travis-ci.org/drpreag/PHP-data-structures.svg?branch=master)
