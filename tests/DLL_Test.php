@@ -1,7 +1,6 @@
 <?php
-namespace Tests;
+namespace PHPDataStructures;
 
-use PHPDataStructures\DLL;
 use PHPUnit\Framework\TestCase;
 
 class DLL_Test extends TestCase
@@ -20,22 +19,22 @@ class DLL_Test extends TestCase
         $dll->add("60", "Sixty");
         $dll->add("25", "Twenty five");
 
-        $this->assertEquals($dll->count(), 8);
+        assertEquals($dll->count(), 8);
 
-        $this->assertEquals($dll->contains(45)->getKey(), 45);
-        $this->assertEquals($dll->contains(10)->getValue(), "Ten");
+        assertEquals($dll->contains(45)->getKey(), 45);
+        assertEquals($dll->contains(10)->getValue(), "Ten");
 
         $dll->delete(45);
-        $this->assertEquals($dll->contains(45), false);
+        assertEquals($dll->contains(45), false);
 
         $dll->delete(10);
-        $this->assertEquals($dll->contains(10), false);
+        assertEquals($dll->contains(10), false);
 
-        $this->assertEquals($dll->contains(20)->getKey(), 20);
-        $this->assertEquals($dll->contains(30)->getValue(), "Thirty");
+        assertEquals($dll->contains(20)->getKey(), 20);
+        assertEquals($dll->contains(30)->getValue(), "Thirty");
 
-        $this->assertEquals($dll->getMax(), 60);
-        $this->assertEquals($dll->getMin(), 20);
+        assertEquals($dll->getMax(), 60);
+        assertEquals($dll->getMin(), 20);
 
         $dll->printList();
     }
