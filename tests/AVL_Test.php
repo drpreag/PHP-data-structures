@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 namespace PHPDataStructures;
+
 //require_once ('vendor/phpunit/phpunit/src/Framework/Assert/Functions.php');
 //use PHPDataStructures\AVL;
 use PHPUnit\Framework\TestCase;
@@ -43,7 +44,7 @@ class AVL_Test extends TestCase
         assertEquals($tree->contains(21), false);
 
         // checks if all nodes were deleted well
-        assertEquals ($tree->count(20), 4);
+        assertEquals($tree->count(20), 4);
 
         // check if minimum and maximum nodes are found well
         assertEquals($tree->getMin()->getValue(), "Ten");

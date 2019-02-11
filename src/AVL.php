@@ -132,7 +132,7 @@ class AVL
             } else {
                 $toDelete->getParent()->setRight(null);
             }
-            unset ($toDelete);
+            unset($toDelete);
         }
         return true;
     }
@@ -185,7 +185,7 @@ class AVL
         return $this->getMax($node->getRight());
     }
 
-    public function getMin(AVL_node $startNode=null)
+    public function getMin(AVL_node $startNode = null)
     {
         $node = !is_null($startNode)?$startNode:$this->root;
 
@@ -200,7 +200,7 @@ class AVL
         return $this->getMax($node->getLeft());
     }
 
-    private function height(AVL_node $node=null): int
+    private function height(AVL_node $node = null): int
     {
         $leftHeight = $rightHeight = null;
         if (is_null($node)) {
@@ -216,7 +216,7 @@ class AVL
         return 1 + max($leftHeight, $rightHeight);
     }
 
-    public function contains(int $key, AVL_node $startNode=null) : bool
+    public function contains(int $key, AVL_node $startNode = null) : bool
     {
         $node = !is_null($startNode)?$startNode:$this->root;
 
@@ -239,7 +239,7 @@ class AVL
         }
     }
 
-    public function search(int $key, AVL_node $startNode=null) : ?AVL_node
+    public function search(int $key, AVL_node $startNode = null) : ?AVL_node
     {
         $node = !is_null($startNode)?$startNode:$this->root;
 
